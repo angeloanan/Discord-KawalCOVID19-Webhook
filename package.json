@@ -3,7 +3,8 @@
   "description": "Discord Webhook for Indonesia's COVID19 status",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "GPL-v3.0-or-later",
+  "repository": "https://github.com/angeloanan/Discord-KawalCOVID19-Webhook",
+  "license": "GPL-3.0-or-later",
   "dependencies": {
     "axios": "^0.19.2",
     "cron": "^1.8.2",

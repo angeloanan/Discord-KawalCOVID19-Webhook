@@ -8,7 +8,9 @@ COPY package*.json ./
 
 USER node
 
-RUN npm install --production
+ENV NODE_ENV=production
+
+RUN yarn install
 
 COPY --chown=node:node . .
 

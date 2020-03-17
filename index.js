@@ -44,7 +44,7 @@ async function sendEmbed (newData, oldData) {
     .setAuthor('Kawal COVID19 Status Update', 'https://pbs.twimg.com/profile_images/1234313294728482816/MxqOJd7F_400x400.jpg', 'https://kawalcovid19.id')
     .addField('Status Sekarang', dataField, true)
     .setTimestamp(newData.lastUpdate)
-    .setFooter('https://kcov.id/daftarpositif')
+    .setFooter('Daily Statistics: https://kcov.id/statistik-harian')
 
   webhook.send(embed)
 }

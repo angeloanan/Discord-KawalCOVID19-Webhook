@@ -11,7 +11,12 @@ async function main () {
   const job = new CronJob('*/10 * * * *', async () => {
     console.log(`[${new Date().toLocaleTimeString()}] Running Cronjob`)
     const newData = await getData()
-    if (initialData.confirmed !== newData.confirmed || initialData.recovered !== newData.recovered || initialData.activeCare !== newData.activeCare || initialData.deaths !== newData.deaths) {
+    if (
+      initialData.confirmed !== newData.confirmed ||
+      initialData.recovered !== newData.recovered ||
+      initialData.activeCare !== newData.activeCare ||
+      initialData.deaths !== newData.deaths
+    ) {
       console.log('Data changed at ' + new Date().toLocaleString())
       sendEmbed(newData, initialData)
       initialData = newData

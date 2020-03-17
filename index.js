@@ -5,14 +5,14 @@ const axios = require('axios').default
 const webhook = new Discord.WebhookClient(process.env.WEBHOOK_ID, process.env.WEBHOOK_TOKEN)
 
 async function main () {
-  console.log('Running main...')
+  console.log(`[${new Date().toLocaleTimeString()}] Running main...`)
   let initialData = await getData()
 
   const job = new CronJob('*/10 * * * *', async () => {
-    console.log('Running Cronjob')
+    console.log(`[${new Date().toLocaleTimeString()}] Running Cronjob`)
     const newData = await getData()
     if (initialData.confirmed !== newData.confirmed || initialData.recovered !== newData.recovered || initialData.activeCare !== newData.activeCare || initialData.deaths !== newData.deaths) {
-      console.log('Got data change!')
+      console.log('Data changed at ' + new Date().toLocaleString())
       sendEmbed(newData, initialData)
       initialData = newData
     }

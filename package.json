@@ -6,10 +6,10 @@
   "repository": "https://github.com/angeloanan/Discord-KawalCOVID19-Webhook",
   "license": "GPL-3.0-or-later",
   "dependencies": {
-    "axios": "^0.19.2",
     "cron": "^1.8.2",
     "discord.js": "^12.0.2",
-    "dotenv": "^8.2.0"
+    "dotenv": "^8.2.0",
+    "node-fetch": "^2.6.0"
   },
   "scripts": {
     "start": "node ."

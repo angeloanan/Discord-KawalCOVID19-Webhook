@@ -1,7 +1,7 @@
 require('dotenv').config()
 const Discord = require('discord.js')
 const CronJob = require('cron').CronJob
-const axios = require('axios').default
+const fetch = require('node-fetch').default
 const webhook = new Discord.WebhookClient(process.env.WEBHOOK_ID, process.env.WEBHOOK_TOKEN)
 
 async function main () {
@@ -28,7 +28,7 @@ async function main () {
 }
 
 async function getData () {
-  const data = await axios.get('https://api.kawalcovid19.id/case/summary').then(res => res.data)
+  const data = await fetch('https://api.kawalcovid19.id/case/summary').then(res => res.json())
   const dataObject = {
     confirmed: data.confirmed,
     recovered: data.recovered,

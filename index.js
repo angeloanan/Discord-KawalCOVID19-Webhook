@@ -15,7 +15,7 @@ async function main () {
       initialData.confirmed !== newData.confirmed ||
       initialData.recovered !== newData.recovered ||
       initialData.activeCare !== newData.activeCare ||
-      initialData.deaths !== newData.deaths
+      initialData.deceased !== newData.deceased
     ) {
       console.log('Data changed at ' + new Date().toLocaleString())
       sendEmbed(newData, initialData)
@@ -28,12 +28,12 @@ async function main () {
 }
 
 async function getData () {
-  const data = await axios.get('https://kawalcovid19.harippe.id/api/summary').then(res => res.data)
+  const data = await axios.get('https://api.kawalcovid19.id/case/summary').then(res => res.data)
   const dataObject = {
-    confirmed: data.confirmed.value,
-    recovered: data.recovered.value,
-    activeCare: data.activeCare.value,
-    deaths: data.deaths.value,
+    confirmed: data.confirmed,
+    recovered: data.recovered,
+    activeCare: data.activeCare,
+    deaths: data.deceased,
     lastUpdate: new Date(data.metadata.lastUpdatedAt)
   }
   return dataObject

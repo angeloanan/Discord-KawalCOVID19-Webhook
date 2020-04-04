@@ -28,7 +28,7 @@ async function main () {
 }
 
 async function getData () {
-  const data = await fetch('https://api.kawalcovid19.id/case/summary').then(res => res.json())
+  const data = await fetch('https://api.kawalcovid19.id/v1/api/case/summary').then(res => res.json())
   const dataObject = {
     confirmed: data.confirmed,
     recovered: data.recovered,
